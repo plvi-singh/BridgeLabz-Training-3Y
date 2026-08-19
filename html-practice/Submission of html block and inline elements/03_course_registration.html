@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Registration</title>
+</head>
+<body>
+    <h1>Course Registration Form</h1>
+
+    <!-- Student registration fields -->
+    <form>
+        <fieldset>
+            <legend>Student Details</legend>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br><br>
+
+            <label for="course">Select Course:</label>
+            <select id="course" name="course">
+                <option value="web">Web Development</option>
+                <option value="java">Java Programming</option>
+                <option value="python">Python Programming</option>
+                <option value="cybersecurity">Cybersecurity</option>
+            </select>
+            <br><br>
+
+            <input type="submit" value="Register">
+        </fieldset>
+    </form>
+
+    <!-- Available course schedules -->
+    <h2>Available Course Schedule</h2>
+    <table border="1">
+        <tr>
+            <th>Day</th>
+            <th>Time</th>
+            <th>Instructor</th>
+        </tr>
+        <tr>
+            <td>Monday</td>
+            <td>10:00 AM</td>
+            <td>Mr. Sharma</td>
+        </tr>
+        <tr>
+            <td>Wednesday</td>
+            <td>12:00 PM</td>
+            <td>Ms. Verma</td>
+        </tr>
+        <tr>
+            <td>Friday</td>
+            <td>2:00 PM</td>
+            <td>Mr. Singh</td>
+        </tr>
+    </table>
+</body>
+</html>

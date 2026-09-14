@@ -1,0 +1,25 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; background: #f8f9fa; color: #1d3557; }
+.page { max-width: 800px; margin: auto; padding: 50px 25px; }
+.demo { background: white; padding: 30px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,.1); }
+/* Attribute selector: targets inputs whose type is exactly text. */
+input[type="text"] { border: 3px solid #4361ee; padding: 12px; }
+/* Attribute selector: targets links whose href starts with https. */
+a[href^="https"] { color: #008000; font-weight: bold; }
+/* Pseudo-class :hover changes links when the pointer is over them. */
+a:hover { text-decoration: none; background: #dff6e4; }
+/* Pseudo-class :focus styles the focused input. */
+input:focus { outline: 3px solid #f4a261; outline-offset: 3px; }
+/* Pseudo-class :nth-child() targets every second list item. */
+li:nth-child(even) { background: #e8edff; }
+/* Pseudo-elements add decorative content. */
+h1::before { content: "★ "; }
+h1::after { content: " ★"; }
+/* Descendant combinator: every p inside .combinators. */
+.combinators p { padding: 8px; }
+/* Child combinator: only direct p children. */
+.combinators > p { border-left: 4px solid #4361ee; }
+/* Adjacent sibling combinator: first span immediately after p. */
+.combinators p + span { background: #fff3cd; }
+/* General sibling combinator: spans following a p. */
+.combinators p ~ span { padding: 6px; }

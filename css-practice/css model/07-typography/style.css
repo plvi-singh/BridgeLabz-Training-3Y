@@ -1,0 +1,23 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: #f8fafc; color: #25324b;
+  font-family: Arial, sans-serif;
+}
+.article {
+  max-width: 850px; margin: 50px auto; padding: 45px;
+  background: white; border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  line-height: 1.8; /* Improves readability */
+}
+h1 {
+  font-family: Georgia, serif; font-size: 2.6rem;
+  font-weight: 700; text-align: center;
+  letter-spacing: 1px;
+}
+p { font-size: 1.08rem; letter-spacing: .3px; text-align: justify; }
+.lead { font-family: "Trebuchet MS", sans-serif; font-weight: 600; font-size: 1.2rem; }
+mark { background: #ffe08a; color: #5c4200; padding: 2px 5px; }
+strong { color: #1d4ed8; }
+em { color: #9d174d; }
+p::first-letter { font-size: 1.7em; font-weight: 700; }
+p::first-line { letter-spacing: .6px; }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Model Exploration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>CSS Box Model</h1>
+    <section class="model-wrap">
+      <div class="margin-layer">
+        <span class="label margin-label">MARGIN</span>
+        <div class="border-layer">
+          <span class="label border-label">BORDER</span>
+          <div class="padding-layer">
+            <span class="label padding-label">PADDING</span>
+            <div class="content-layer">CONTENT</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="comparison">
+      <article><h2>Default content-box</h2><p>Width applies to content; padding and border are added.</p></article>
+      <article class="border-box"><h2>box-sizing: border-box</h2><p>Declared width includes content, padding, and border.</p></article>
+    </section>
+  </main>
+</body>
+</html>

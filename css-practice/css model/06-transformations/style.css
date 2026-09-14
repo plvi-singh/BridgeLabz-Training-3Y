@@ -1,0 +1,19 @@
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; font-family: Arial, sans-serif; background: #f1f5f9; text-align: center; }
+main { padding: 60px 25px; }
+.transform-grid {
+  display: flex; justify-content: center; align-items: center;
+  gap: 55px; flex-wrap: wrap; margin-top: 70px;
+}
+article { min-width: 150px; }
+.shape {
+  width: 130px; height: 130px; margin: auto;
+  display: grid; place-items: center;
+  background: #4361ee; color: white; font-weight: bold;
+  border-radius: 14px;
+  transition: all 0.4s ease; /* Required smooth transition */
+}
+.rotate:hover { transform: rotate(20deg); }
+.scale:hover { transform: scale(1.2); }
+.translate:hover { transform: translate(20px, -15px); }
+.skew:hover { transform: skew(15deg, 8deg); }

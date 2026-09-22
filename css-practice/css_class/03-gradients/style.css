@@ -1,0 +1,31 @@
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, sans-serif; color: white; }
+header {
+  position: fixed; top: 0; left: 0; right: 0;
+  padding: 18px; text-align: center;
+  background: rgba(10, 20, 40, 0.9);
+  z-index: 10;
+}
+main { padding-top: 58px; padding-bottom: 55px; }
+section {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+}
+.linear {
+  background: linear-gradient(120deg, #4361ee, #9b5de5, #f72585);
+  background-attachment: fixed; /* Parallax-like effect */
+}
+.radial {
+  background: radial-gradient(circle at center, #2a9d8f, #264653 70%);
+}
+footer {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  padding: 15px; text-align: center;
+  background: rgba(10, 20, 40, 0.9);
+}

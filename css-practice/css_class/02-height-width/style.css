@@ -1,0 +1,29 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eef2ff;
+}
+.layout {
+  min-height: 100vh;
+  padding: 30px;
+  display: flex; /* Center all boxes with Flexbox */
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 24px;
+}
+.size-box {
+  padding: 20px;
+  border-radius: 16px;
+  color: #fff;
+  text-align: center;
+  min-height: 120px; /* Prevent boxes from becoming too short */
+  max-width: 420px;  /* Restrict maximum width */
+  overflow: auto;    /* Handle content larger than the box */
+}
+.px { width: 240px; height: 140px; background: #4361ee; }
+.percent { width: 70%; height: 160px; background: #2a9d8f; }
+.viewport { width: 280px; height: 25vh; background: #f77f00; }
+.em { width: 18em; height: 10em; background: #9b5de5; }

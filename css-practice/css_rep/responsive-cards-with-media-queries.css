@@ -1,0 +1,10 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial,sans-serif; background: #f8fafc; color: #172033; }
+header, footer { text-align: center; padding: 30px 20px; }
+header p, footer { color: #64748b; }
+.cards { width: min(1100px, 92%); margin: 10px auto 35px; display: flex; flex-wrap: wrap; gap: 22px; }
+.card { flex: 1 1 calc(25% - 22px); min-width: 0; padding: 28px; background: white; border-radius: 15px; border: 1px solid #e2e8f0; transition: background .3s ease, transform .3s ease; }
+.card span { font-weight: 800; color: #2563eb; }
+.card:hover { background: #dbeafe; transform: translateY(-4px); }
+@media (max-width: 900px) { .card { flex-basis: calc(50% - 22px); } }
+@media (max-width: 600px) { .card { flex-basis: 100%; } }

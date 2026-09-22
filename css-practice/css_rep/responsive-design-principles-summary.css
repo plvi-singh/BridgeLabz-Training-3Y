@@ -1,0 +1,8 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial,sans-serif; background: #f1f5f9; color: #172033; }
+header, footer { text-align: center; padding: 30px 20px; }
+.principles { width: min(1100px, 90%); margin: 10px auto 35px; display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+.principles article { padding: 28px; background: white; border-radius: 16px; transition: background .35s ease, color .35s ease, transform .35s ease; }
+.principles article:hover { background: linear-gradient(135deg,#1d4ed8,#7c3aed); color: white; transform: translateY(-5px); }
+pre { background: #0f172a; color: #e2e8f0; padding: 15px; border-radius: 9px; white-space: pre-wrap; }
+@media (max-width: 600px) { .principles { grid-template-columns: 1fr; } }

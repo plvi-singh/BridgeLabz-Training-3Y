@@ -1,0 +1,10 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial,sans-serif; background: #f8fafc; color: #172033; }
+header, footer { text-align: center; padding: 30px 20px; }
+.comparison { width: min(1000px, 90%); margin: 10px auto 40px; display: flex; gap: 25px; }
+.comparison figure { flex: 1; margin: 0; background: white; padding: 15px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+.comparison img { width: 100%; display: block; border-radius: 10px; transition: filter .6s ease; }
+.comparison .after { filter: contrast(1.8) brightness(.9); }
+.comparison figure:hover .after { filter: none; }
+figcaption { text-align: center; font-weight: 700; padding: 14px 5px 4px; }
+@media (max-width: 700px) { .comparison { flex-direction: column; } }

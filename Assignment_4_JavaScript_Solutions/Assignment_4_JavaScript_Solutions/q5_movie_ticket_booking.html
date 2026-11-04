@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Movie Ticket Booking</title></head>
+<body>
+    <h2>Movie Ticket Booking</h2>
+    <form id="bookingForm">
+        <p><label>Name: <input id="name" type="text" required></label></p>
+        <p><label>Email: <input id="email" type="email" required></label></p>
+        <p><label>Seats (1-10): <input id="seats" type="number" min="1" max="10" required></label></p>
+        <button type="submit">Book Tickets</button>
+    </form>
+    <p id="bookingResult" aria-live="polite"></p>
+    <script src="q5_movie_ticket_booking.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+body { font-family: Arial; padding: 30px; }
+input, button { padding: 10px; margin: 5px; }
+button { cursor: pointer; }
+li { margin: 15px 0; }
+.productName { display: inline-block; min-width: 150px; }

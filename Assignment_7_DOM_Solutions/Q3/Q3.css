@@ -1,0 +1,5 @@
+body { font-family: Arial; padding: 30px; }
+label, input { display: block; margin: 10px 0; }
+input { padding: 9px; width: 250px; }
+button { padding: 9px 16px; margin-right: 8px; }
+#summary { margin-top: 20px; }

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html><head><title>Form Validation</title><link rel="stylesheet" href="Q9.css"></head>
+<body>
+<h2>Registration Form</h2>
+<form id="registrationForm" novalidate>
+  <label>Name</label><input id="name" type="text">
+  <small id="nameError" class="error"></small>
+
+  <label>Email</label><input id="email" type="text">
+  <small id="emailError" class="error"></small>
+
+  <label>Password</label><input id="password" type="password">
+  <small id="passwordError" class="error"></small>
+
+  <button type="submit">Submit</button>
+</form>
+<p id="successMessage" hidden>Form Submitted Successfully</p>
+<script src="Q9.js"></script>
+</body></html>

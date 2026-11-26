@@ -1,0 +1,5 @@
+body { font-family: Arial; padding: 30px; }
+textarea { width: 320px; height: 120px; padding: 10px; }
+#counter { color: green; }
+#counter.warning { color: #c58b00; }
+#counter.danger { color: red; }

@@ -1,0 +1,5 @@
+body { font-family: Arial; padding: 30px; }
+input { padding: 10px; margin-bottom: 15px; width: 250px; }
+table { border-collapse: collapse; min-width: 400px; }
+th, td { border: 1px solid #aaa; padding: 10px; text-align: left; }
+th { background: #eee; }

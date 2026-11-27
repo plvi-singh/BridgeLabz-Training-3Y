@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q9 – Multi-jQuery Widgets</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header, main, footer {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.25rem;
+    }
+    header { border-bottom: 1px solid var(--border); }
+    header h1 { margin: 0 0 0.25rem; font-size: 1.5rem; }
+    header p { margin: 0; color: var(--muted); }
+    .version-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .ver-badge {
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+    .ver1 { background: #dbeafe; color: #1e40af; }
+    .ver2 { background: #dcfce7; color: #166534; }
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    /* Carousel (Version 1) */
+    .carousel-box {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #1e293b;
+      color: #fff;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .carousel-slide {
+      display: none;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+    .carousel-slide.active { display: block; }
+    .carousel-controls {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    button {
+      border: none;
+      border-radius: 8px;
+      padding: 0.55rem 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: #2563eb;
+      color: #fff;
+    }
+    button:hover { background: #1d4ed8; }
+    button.v2 { background: #059669; }
+    button.v2:hover { background: #047857; }
+    /* Widgets grid (Version 1 highlight + Version 2 tooltips) */
+    .widgets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+      gap: 0.9rem;
+      margin-top: 0.85rem;
+    }
+    .widget-card {
+      position: relative;
+      padding: 1rem;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      background: #f8fafc;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    .widget-card.active-widget {
+      background: #fef9c3;
+      border-color: #eab308;
+    }
+    /* Dynamic tooltip attached by Version 2 */
+    .v2-tooltip {
+      position: fixed;
+      z-index: 1000;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 0.4rem 0.65rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      pointer-events: none;
+      display: none;
+    }
+    /* Modal popup managed by Version 2 */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      z-index: 900;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-box {
+      background: #ffffff;
+      border-radius: 12px;
+      max-width: 440px;
+      width: 100%;
+      padding: 1.5rem;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Q9 – Multi-jQuery Widgets</h1>
+    <p>Running jQuery 1.12.4 and jQuery 3.7.1 simultaneously using <code>jQuery.noConflict()</code>.</p>
+  </header>
+
+  <main>
+    <div class="version-bar">
+      <span id="v1-status" class="ver-badge ver1">Version 1: loading...</span>
+      <span id="v2-status" class="ver-badge ver2">Version 2: loading...</span>
+    </div>
+
+    <!-- Scenario 1: Version 1 Carousel Slider (5 slides) -->
+    <section class="panel" aria-labelledby="carousel-heading">
+      <h2 id="carousel-heading" style="margin-top:0;">Carousel Slider (Handled by jQuery Version 1)</h2>
+      <div class="carousel-box">
+        <div class="carousel-slide active">Slide 1: System Uptime — 99.98% Across All Regions</div>
+        <div class="carousel-slide">Slide 2: Active Users — 14,520 Online Right Now</div>
+        <div class="carousel-slide">Slide 3: Deployments — 42 Releases Completed This Week</div>
+        <div class="carousel-slide">Slide 4: Security — Zero Critical Vulnerabilities Detected</div>
+        <div class="carousel-slide">Slide 5: Performance — Average API Latency 38ms</div>
+        <div class="carousel-controls">
+          <button id="prev-slide" type="button">Previous</button>
+          <button id="next-slide" type="button">Next</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scenario 3 & 4: 5 Dashboard Widgets (Version 1 active highlight + Version 2 hover tooltip) -->
+    <section class="panel" aria-labelledby="widgets-heading">
+      <h2 id="widgets-heading" style="margin-top:0;">Dashboard Widgets (Click = V1 Active Highlight | Hover = V2 Tooltip)</h2>
+      <div class="widgets-grid">
+        <article class="widget-card" data-tooltip="Shows real-time revenue metrics (V2 Tooltip)">
+          <h3 style="margin:0 0 0.25rem;">Revenue</h3>
+          <p style="margin:0;">$48,200</p>
+        </article>
+        <article class="widget-card" data-tooltip="Tracks daily new signups (V2 Tooltip)">
+          <h3 style="margin:0 0 0.25rem;">Signups</h3>
+          <p style="margin:0;">+312 Today</p>
+        </article>
+        <article class="widget-card" data-tooltip="Open support tickets queue (V2 Tooltip)">
+          <h3 style="margin:0 0 0.25rem;">Tickets</h3>
+          <p style="margin:0;">18 Open</p>
+        </article>
+        <article class="widget-card" data-tooltip="Average server CPU load (V2 Tooltip)">
+          <h3 style="margin:0 0 0.25rem;">CPU Load</h3>
+          <p style="margin:0;">34%</p>
+        </article>
+        <article class="widget-card" data-tooltip="Storage capacity remaining (V2 Tooltip)">
+          <h3 style="margin:0 0 0.25rem;">Storage</h3>
+          <p style="margin:0;">68% Free</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Scenario 2: Version 2 Notification Modal Trigger -->
+    <section class="panel" aria-labelledby="modal-heading">
+      <h2 id="modal-heading" style="margin-top:0;">Notification Center (Handled by jQuery Version 2)</h2>
+      <button id="btn-open-modal" class="v2" type="button">Open Notification Modal (jQuery v2)</button>
+    </section>
+  </main>
+
+  <!-- Tooltip container and Modal popup -->
+  <div id="v2-tooltip" class="v2-tooltip" role="tooltip"></div>
+
+  <div id="notif-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <h2 id="modal-title" style="margin-top:0;">Dashboard Notifications</h2>
+      <p>This modal popup and hover tooltips are managed by <strong>jQuery Version 2</strong> without conflicting with Version 1!</p>
+      <ul>
+        <li>Backup completed successfully at 03:00 AM.</li>
+        <li>3 new team members joined your workspace.</li>
+      </ul>
+      <button id="btn-close-modal" class="v2" type="button">Close Notification</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>Assignment 9 – Question 9 | Semantic HTML5 &amp; Multi-Version jQuery</p>
+  </footer>
+
+  <!-- Load two different versions of jQuery -->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="q9.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q4 – Special Offer Banner</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header, main, footer {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 1.25rem;
+    }
+    header { border-bottom: 1px solid var(--border); }
+    header h1 { margin: 0 0 0.25rem; font-size: 1.5rem; }
+    header p { margin: 0; color: var(--muted); }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    button {
+      border: none;
+      border-radius: 8px;
+      padding: 0.55rem 0.95rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: #2563eb;
+      color: #ffffff;
+    }
+    button:hover { background: #1d4ed8; }
+    button.alt { background: #475569; }
+    button.alt:hover { background: #334155; }
+    button.warn { background: #dc2626; }
+    button.warn:hover { background: #b91c1c; }
+    .banners-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .offer-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.15rem 1.4rem;
+      border-radius: 12px;
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .offer-banner[data-id="1"] { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+    .offer-banner[data-id="2"] { background: linear-gradient(135deg, #059669, #047857); }
+    .offer-banner[data-id="3"] { background: linear-gradient(135deg, #d97706, #b45309); }
+    .offer-banner[data-id="4"] { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+    .offer-banner[data-id="5"] { background: linear-gradient(135deg, #e11d48, #be123c); }
+    .rotator-section {
+      margin-top: 1.5rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .rotator-stage {
+      position: relative;
+      min-height: 90px;
+      margin-top: 0.75rem;
+    }
+    .rotator-slide {
+      display: none;
+      padding: 1.25rem;
+      border-radius: 10px;
+      color: #ffffff;
+      font-weight: 600;
+      text-align: center;
+    }
+    .rotator-slide:first-child { display: block; }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Q4 – Special Offer Banner</h1>
+    <p>Hide, show, slide up/down, fade in/out, and 5-second automatic banner rotation.</p>
+  </header>
+
+  <main>
+    <section aria-label="Banner Controls" class="controls">
+      <button id="btn-hide-specific" class="warn" type="button">Hide Promo #2 &amp; #4</button>
+      <button id="btn-show-all" type="button">Show All Banners</button>
+      <button id="btn-slide-up" class="alt" type="button">Slide Up</button>
+      <button id="btn-slide-down" class="alt" type="button">Slide Down</button>
+      <button id="btn-fade-out" class="alt" type="button">Fade Out</button>
+      <button id="btn-fade-in" class="alt" type="button">Fade In</button>
+    </section>
+
+    <!-- 5 Promotional Banners -->
+    <section class="banners-wrapper" aria-label="Promotional Banners">
+      <article class="offer-banner" data-id="1">
+        <span>Banner 1: Flash Sale — 40% Off All Tech Accessories!</span>
+        <button class="btn-hide-one warn" type="button">Hide</button>
+      </article>
+      <article class="offer-banner" data-id="2">
+        <span>Banner 2: Free Express Shipping on Orders Over $50!</span>
+        <button class="btn-hide-one warn" type="button">Hide</button>
+      </article>
+      <article class="offer-banner" data-id="3">
+        <span>Banner 3: Weekend Bundle — Buy 2 Courses, Get 1 Free!</span>
+        <button class="btn-hide-one warn" type="button">Hide</button>
+      </article>
+      <article class="offer-banner" data-id="4">
+        <span>Banner 4: Student Discount — Extra 15% Off with .edu Email!</span>
+        <button class="btn-hide-one warn" type="button">Hide</button>
+      </article>
+      <article class="offer-banner" data-id="5">
+        <span>Banner 5: Members Exclusive — Early Access to New Releases!</span>
+        <button class="btn-hide-one warn" type="button">Hide</button>
+      </article>
+    </section>
+
+    <!-- Automatic 5-second rotation showcase -->
+    <section class="rotator-section" aria-labelledby="rotator-heading">
+      <h2 id="rotator-heading" style="margin:0;">Auto-Rotating Spotlight Banner (Every 5 Seconds)</h2>
+      <div class="rotator-stage">
+        <div class="rotator-slide" style="background:#2563eb;">Spotlight 1: 40% Off Electronics — Code: TECH40</div>
+        <div class="rotator-slide" style="background:#059669;">Spotlight 2: Free Express Delivery Today Only!</div>
+        <div class="rotator-slide" style="background:#d97706;">Spotlight 3: Buy 2 Get 1 Free on Study Guides</div>
+        <div class="rotator-slide" style="background:#7c3aed;">Spotlight 4: Extra 15% Student Savings Available</div>
+        <div class="rotator-slide" style="background:#e11d48;">Spotlight 5: VIP Early Bird Deals Now Open</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Assignment 9 – Question 4 | Semantic HTML5 &amp; jQuery</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="q4.js"></script>
+</body>
+</html>

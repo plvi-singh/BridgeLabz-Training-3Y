@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q8 – Dynamic Blog Posts</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header, main, footer {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 1.25rem;
+    }
+    header { border-bottom: 1px solid var(--border); }
+    header h1 { margin: 0 0 0.25rem; font-size: 1.5rem; }
+    header p { margin: 0; color: var(--muted); }
+    .controls {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+    input[type="text"] {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.55rem 0.8rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+    button {
+      border: none;
+      border-radius: 8px;
+      padding: 0.55rem 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: #2563eb;
+      color: #ffffff;
+    }
+    button:hover { background: #1d4ed8; }
+    button.featured-btn { background: #7c3aed; }
+    button.featured-btn:hover { background: #6d28d9; }
+    button.danger { background: #dc2626; }
+    button.danger:hover { background: #b91c1c; }
+    button.secondary { background: #475569; }
+    button.secondary:hover { background: #334155; }
+    .posts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .blog-post {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+    .blog-post.featured {
+      border-left: 5px solid #7c3aed;
+      background: #faf5ff;
+    }
+    .blog-post.keyword-highlight {
+      background: #fef9c3;
+      border-color: #eab308;
+    }
+    .post-title { margin: 0 0 0.35rem; font-size: 1.12rem; }
+    .post-body { margin: 0; color: #334155; }
+    .post-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: #e0e7ff;
+      color: #3730a3;
+      margin-right: 0.4rem;
+      margin-bottom: 0.35rem;
+    }
+    .post-tag.after-tag {
+      background: #dcfce7;
+      color: #166534;
+      margin-top: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Q8 – Dynamic Blog Posts</h1>
+    <p>Append, prepend, remove last post, place tags with .before()/.after(), and dynamically highlight keywords.</p>
+  </header>
+
+  <main>
+    <section class="controls" aria-label="Blog Admin Controls">
+      <div class="row">
+        <input id="post-title-input" type="text" placeholder="Post title (optional, auto-generated if empty)..." />
+        <button id="btn-add-post" type="button">Add New Post</button>
+        <button id="btn-prepend-featured" class="featured-btn" type="button">Prepend Featured Post</button>
+        <button id="btn-remove-last" class="danger" type="button">Remove Last Post</button>
+      </div>
+      <div class="row">
+        <input id="tag-input" type="text" placeholder="Enter tag (e.g., #jQuery or #Tutorial)..." />
+        <button id="btn-add-tag" class="secondary" type="button">Add Tag (.before/.after)</button>
+        <input id="keyword-input" type="text" placeholder="Keyword to highlight (e.g., jQuery, Cloud, AI)..." />
+        <button id="btn-highlight-keyword" class="secondary" type="button">Highlight Keyword</button>
+      </div>
+    </section>
+
+    <!-- At least 5 initial blog posts -->
+    <section id="blog-posts-container" class="posts-list" aria-label="Blog Posts">
+      <article class="blog-post">
+        <h2 class="post-title">Getting Started with Modern jQuery Selectors</h2>
+        <p class="post-body">Learn how attribute and hierarchy selectors simplify DOM updates across large apps.</p>
+      </article>
+      <article class="blog-post">
+        <h2 class="post-title">Designing Accessible Semantic HTML5 Pages</h2>
+        <p class="post-body">Using header, main, section, and article tags improves screen reader navigation and SEO.</p>
+      </article>
+      <article class="blog-post">
+        <h2 class="post-title">Cloud Deployment Checklist for Web Developers</h2>
+        <p class="post-body">Verify caching headers, TLS certificates, and zero-downtime rollbacks before launch.</p>
+      </article>
+      <article class="blog-post">
+        <h2 class="post-title">Building Smooth UI Animations with jQuery</h2>
+        <p class="post-body">Use fadeIn, slideToggle, and stop(true, true) to prevent animation queue buildup.</p>
+      </article>
+      <article class="blog-post">
+        <h2 class="post-title">AI Tools in Everyday Front-End Workflows</h2>
+        <p class="post-body">Accelerate prototyping, testing, and documentation without sacrificing code clarity.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>Assignment 9 – Question 8 | Semantic HTML5 &amp; jQuery</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="q8.js"></script>
+</body>
+</html>

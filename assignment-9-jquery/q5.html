@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q5 – Team Members Directory</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header, main, footer {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1.25rem;
+    }
+    header { border-bottom: 1px solid var(--border); }
+    header h1 { margin: 0 0 0.25rem; font-size: 1.5rem; }
+    header p { margin: 0; color: var(--muted); }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    button {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.55rem 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: #1d4ed8; }
+    button.secondary { background: #475569; }
+    button.secondary:hover { background: #334155; }
+    .department {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .dept-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+    }
+    .dept-title {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #1e3a8a;
+    }
+    .team-list {
+      margin-top: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .manager {
+      padding: 0.75rem 1rem;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .direct-reports {
+      list-style: none;
+      margin: 0;
+      padding-left: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .employee-row {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.65rem 0.9rem;
+      background: #ffffff;
+      transition: background-color 0.2s ease;
+    }
+    .employee {
+      font-weight: 600;
+      cursor: pointer;
+    }
+    /* Contact info revealed via .next() on hover */
+    .contact-info {
+      display: none;
+      margin-top: 0.35rem;
+      font-size: 0.88rem;
+      color: #475569;
+    }
+    .highlight-report {
+      background-color: #fef9c3 !important;
+      border-color: #eab308;
+    }
+    .highlight-sibling {
+      background-color: #dcfce7 !important;
+      border-color: #22c55e;
+    }
+    .dept-member-bg {
+      background-color: #e0f2fe !important;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Q5 – Team Members Directory</h1>
+    <p>Hierarchical directory using .next(), .children(), .siblings(), .parent(), and .find().</p>
+  </header>
+
+  <main>
+    <div class="toolbar">
+      <button id="btn-random-emp" type="button">Select Random Employee (Highlight Siblings)</button>
+      <button id="btn-clear-highlights" class="secondary" type="button">Clear Highlights</button>
+    </div>
+
+    <!-- Department 1 -->
+    <section class="department">
+      <div class="dept-header">
+        <h2 class="dept-title">Engineering Department (Click title to color members)</h2>
+        <button type="button" class="btn-toggle-team secondary">Collapse / Expand Team</button>
+      </div>
+      <div class="team-list">
+        <div class="manager" data-manager="alice">Manager: Alice Johnson (VP of Engineering) — Click to highlight direct reports</div>
+        <ul class="direct-reports">
+          <li class="employee-row">
+            <div class="employee">Bob Smith — Senior Frontend Engineer</div>
+            <div class="contact-info">Email: bob.smith@company.com | Ext: 201</div>
+          </li>
+          <li class="employee-row">
+            <div class="employee">Carol White — Backend Architect</div>
+            <div class="contact-info">Email: carol.white@company.com | Ext: 202</div>
+          </li>
+          <li class="employee-row">
+            <div class="employee">David Lee — DevOps Specialist</div>
+            <div class="contact-info">Email: david.lee@company.com | Ext: 203</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Department 2 -->
+    <section class="department">
+      <div class="dept-header">
+        <h2 class="dept-title">Design &amp; Product Department (Click title to color members)</h2>
+        <button type="button" class="btn-toggle-team secondary">Collapse / Expand Team</button>
+      </div>
+      <div class="team-list">
+        <div class="manager" data-manager="elena">Manager: Elena Garcia (Head of Design) — Click to highlight direct reports</div>
+        <ul class="direct-reports">
+          <li class="employee-row">
+            <div class="employee">Frank Miller — UI/UX Designer</div>
+            <div class="contact-info">Email: frank.miller@company.com | Ext: 301</div>
+          </li>
+          <li class="employee-row">
+            <div class="employee">Grace Kim — Product Researcher</div>
+            <div class="contact-info">Email: grace.kim@company.com | Ext: 302</div>
+          </li>
+          <li class="employee-row">
+            <div class="employee">Henry Patel — Design Systems Lead</div>
+            <div class="contact-info">Email: henry.patel@company.com | Ext: 303</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Assignment 9 – Question 5 | Semantic HTML5 &amp; jQuery</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="q5.js"></script>
+</body>
+</html>

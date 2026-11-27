@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q1 – Welcome Page Greeting</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header, main, footer {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.25rem;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+    }
+    header h1 { margin: 0 0 0.25rem; font-size: 1.5rem; }
+    header p { margin: 0; color: var(--muted); }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+    }
+    #greeting-banner {
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      border: 1px solid #bfdbfe;
+      border-radius: 10px;
+      padding: 1.25rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    #greeting-banner:hover { transform: translateY(-2px); }
+    #welcome-message {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #f8fafc;
+      border-left: 4px solid var(--primary);
+      border-radius: 6px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.6rem 1.1rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: var(--primary-dark); }
+    button.secondary {
+      background: #475569;
+    }
+    button.secondary:hover { background: #334155; }
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .highlight-item {
+      padding: 0.85rem;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Q1 – Welcome Page Greeting</h1>
+    <p>Dynamic greeting, motivational quotes, visibility toggle, and click alert.</p>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="greeting-heading">
+      <h2 id="greeting-heading" class="visually-hidden" style="margin-top:0;">Dynamic Visitor Greeting</h2>
+
+      <!-- Greeting element: populated on page load and clickable for an alert -->
+      <div id="greeting-banner" role="button" tabindex="0" title="Click to see greeting details">
+        Loading greeting...
+      </div>
+
+      <!-- Welcome message whose visibility can be toggled -->
+      <article id="welcome-message">
+        <p style="margin:0;">
+          Welcome to our learning portal! Explore daily resources, track your goals, and stay inspired.
+        </p>
+      </article>
+
+      <div class="actions">
+        <button id="btn-change-greeting" type="button">Change Greeting</button>
+        <button id="btn-toggle-welcome" class="secondary" type="button">Toggle Welcome Message</button>
+        <button id="btn-reset-greeting" class="secondary" type="button">Reset Time Greeting</button>
+      </div>
+    </section>
+
+    <!-- At least 5 elements/items demonstrating page content -->
+    <section class="card" aria-labelledby="highlights-heading">
+      <h2 id="highlights-heading" style="margin-top:0;">Today's 5 Daily Highlights</h2>
+      <div class="highlights-grid">
+        <article class="highlight-item"><strong>1. Focus</strong><br />Set 3 clear priorities for today.</article>
+        <article class="highlight-item"><strong>2. Learn</strong><br />Read one technical article.</article>
+        <article class="highlight-item"><strong>3. Practice</strong><br />Write clean, tested code.</article>
+        <article class="highlight-item"><strong>4. Collaborate</strong><br />Share helpful feedback.</article>
+        <article class="highlight-item"><strong>5. Reflect</strong><br />Review progress before wrapping up.</article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Assignment 9 – Question 1 | Semantic HTML5 &amp; jQuery</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="q1.js"></script>
+</body>
+</html>

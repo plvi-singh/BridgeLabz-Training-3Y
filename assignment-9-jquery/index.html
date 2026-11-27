@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assignment 9 – jQuery Solutions Index</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header, main, footer {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1.25rem;
+    }
+    header { border-bottom: 1px solid var(--border); }
+    header h1 { margin: 0 0 0.25rem; }
+    header p { margin: 0; color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .card h2 { margin: 0; font-size: 1.05rem; }
+    .card p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+    .card a {
+      display: inline-block;
+      text-decoration: none;
+      background: #2563eb;
+      color: #ffffff;
+      padding: 0.45rem 0.9rem;
+      border-radius: 7px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      align-self: flex-start;
+    }
+    .card a:hover { background: #1d4ed8; }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Assignment 9 – jQuery Solutions</h1>
+    <p>Each question has separate semantic HTML5 and commented jQuery JS files.</p>
+  </header>
+
+  <main>
+    <nav class="grid" aria-label="Assignment Questions">
+      <article class="card">
+        <div>
+          <h2>Q1 – Welcome Page Greeting</h2>
+          <p>Time-based greeting, motivational quotes, visibility toggle, and alert.</p>
+        </div>
+        <a href="q1.html">Open Q1</a>
+      </article>
+      <article class="card">
+        <div>
+          <h2>Q2 – Product Highlight</h2>
+          <p>Click highlight, hover details, favorite toggle, attribute discount style, out-of-stock alert.</p>
+        </div>
+        <a href="q2.html">Open Q2</a>
+      </article>
+      <article class="card">
+        <div>
+          <h2>Q3 – Interactive FAQ</h2>
+          <p>Toggle answer, hover color, double-click collapse all, focus/blur input highlight.</p>
+        </div>
+        <a href="q3.html">Open Q3</a>
+      </article>
+      <article class="card">
+        <div>
+          <h2>Q4 – Special Offer Banner</h2>
+          <p>Hide/show, slide up/down, fade in/out, and 5-second auto rotation.</p>
+        </div>
+        <a href="q4.html">Open Q4</a>
+      </article>
+      <article class="card">
+        <div>
+          <h2>Q5 – Team Members Directory</h2>
+          <p>Manager reports, .next() hover contact, .children() dept color, .siblings(), .parent()/.find().</p>
+        </div>
+        <a href="q5.html">Open Q5</a>
+      </article>
+      <article class="card">
+        <div>
+          <h2>Q6 – Event Subscription Panel</h2>
+          <p>Subscribe/unsubscribe, dynamic .on(), detach with .off(), DOM success message.</p>
+        </div>
+        <a href="q6.html">Open Q6</a>
+      </article>
+      <article class="card">
+        <div>
+          <h2>Q7 – Search Courses</h2>
+          <p>Real-time .keyup() filter, .css() match highlight, visibility toggle, match count, clear.</p>
+        </div>
+        <a href="q7.html">Open Q7</a>
+      </article>
+      <article class="card">
+        <div>
+          <h2>Q8 – Dynamic Blog Posts</h2>
+          <p>Append, prepend featured, remove last, .before()/.after() tags, dynamic keyword highlight.</p>
+        </div>
+        <a href="q8.html">Open Q8</a>
+      </article>
+      <article class="card">
+        <div>
+          <h2>Q9 – Multi-jQuery Widgets</h2>
+          <p>jQuery 1.12.4 &amp; 3.7.1 running simultaneously via jQuery.noConflict().</p>
+        </div>
+        <a href="q9.html">Open Q9</a>
+      </article>
+      <article class="card">
+        <div>
+          <h2>Q10 – Registration Form Validation</h2>
+          <p>Name, email format &amp; uniqueness, password min 8 chars, success message, red border .css().</p>
+        </div>
+        <a href="q10.html">Open Q10</a>
+      </article>
+    </nav>
+  </main>
+
+  <footer>
+    <p>Assignment 9 | Complete Solutions (Q1 – Q10)</p>
+  </footer>
+</body>
+</html>

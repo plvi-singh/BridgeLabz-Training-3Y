@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q2 – Product Highlight</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header, main, footer {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 1.25rem;
+    }
+    header { border-bottom: 1px solid var(--border); }
+    header h1 { margin: 0 0 0.25rem; font-size: 1.5rem; }
+    header p { margin: 0; color: var(--muted); }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+    .product-card {
+      position: relative;
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    }
+    /* Highlighted background class toggled on product click */
+    .product-card.highlighted {
+      background-color: #fef9c3;
+      border-color: #eab308;
+    }
+    .product-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .product-title { margin: 0; font-size: 1.1rem; }
+    .price { font-weight: 700; font-size: 1.05rem; margin: 0.4rem 0; }
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: #e2e8f0;
+      color: #334155;
+    }
+    .badge.out { background: #fee2e2; color: #b91c1c; }
+    /* Favorite button & selected state */
+    .fav-btn {
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      flex-shrink: 0;
+    }
+    .fav-btn.selected {
+      background: #ffe4e6;
+      border-color: #f43f5e;
+      color: #e11d48;
+    }
+    /* Additional product details hidden until hover */
+    .product-details {
+      display: none;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--border);
+      font-size: 0.9rem;
+      color: #475569;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Q2 – Product Highlight</h1>
+    <p>Click to highlight, hover for details, toggle favorite, discount attribute styling, and out-of-stock alerts.</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="catalog-heading">
+      <h2 id="catalog-heading">Featured E-Commerce Catalog (6 Products)</h2>
+      <div class="product-grid">
+        <article class="product-card" data-discount="20%" data-stock="in">
+          <div class="product-header">
+            <h3 class="product-title">Wireless Headphones</h3>
+            <button type="button" class="fav-btn" aria-label="Favorite Wireless Headphones">&#9829;</button>
+          </div>
+          <p class="price">$79.99 <span class="badge">20% OFF</span></p>
+          <span class="badge">In Stock</span>
+          <div class="product-details">
+            <p style="margin:0;">Active noise cancellation, 30-hour battery life, USB-C fast charging.</p>
+          </div>
+        </article>
+
+        <article class="product-card" data-stock="in">
+          <div class="product-header">
+            <h3 class="product-title">Mechanical Keyboard</h3>
+            <button type="button" class="fav-btn" aria-label="Favorite Mechanical Keyboard">&#9829;</button>
+          </div>
+          <p class="price">$119.00</p>
+          <span class="badge">In Stock</span>
+          <div class="product-details">
+            <p style="margin:0;">Hot-swappable tactile switches, RGB backlight, aluminum frame.</p>
+          </div>
+        </article>
+
+        <article class="product-card" data-discount="15%" data-stock="out">
+          <div class="product-header">
+            <h3 class="product-title">4K UltraSharp Monitor</h3>
+            <button type="button" class="fav-btn" aria-label="Favorite 4K UltraSharp Monitor">&#9829;</button>
+          </div>
+          <p class="price">$349.00 <span class="badge">15% OFF</span></p>
+          <span class="badge out">Out of Stock</span>
+          <div class="product-details">
+            <p style="margin:0;">27-inch IPS panel, 99% sRGB color accuracy, adjustable stand.</p>
+          </div>
+        </article>
+
+        <article class="product-card" data-stock="in">
+          <div class="product-header">
+            <h3 class="product-title">Ergonomic Mouse</h3>
+            <button type="button" class="fav-btn" aria-label="Favorite Ergonomic Mouse">&#9829;</button>
+          </div>
+          <p class="price">$49.50</p>
+          <span class="badge">In Stock</span>
+          <div class="product-details">
+            <p style="margin:0;">Precision 4000 DPI sensor, silent clicks, Bluetooth &amp; 2.4GHz.</p>
+          </div>
+        </article>
+
+        <article class="product-card" data-discount="30%" data-stock="in">
+          <div class="product-header">
+            <h3 class="product-title">USB-C Multiport Hub</h3>
+            <button type="button" class="fav-btn" aria-label="Favorite USB-C Multiport Hub">&#9829;</button>
+          </div>
+          <p class="price">$34.99 <span class="badge">30% OFF</span></p>
+          <span class="badge">In Stock</span>
+          <div class="product-details">
+            <p style="margin:0;">4K HDMI, 100W PD pass-through, SD/TF reader, Gigabit Ethernet.</p>
+          </div>
+        </article>
+
+        <article class="product-card" data-stock="out">
+          <div class="product-header">
+            <h3 class="product-title">Smart Desk Lamp</h3>
+            <button type="button" class="fav-btn" aria-label="Favorite Smart Desk Lamp">&#9829;</button>
+          </div>
+          <p class="price">$59.00</p>
+          <span class="badge out">Out of Stock</span>
+          <div class="product-details">
+            <p style="margin:0;">Stepless dimming, auto ambient sensor, warm-to-cool color modes.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Assignment 9 – Question 2 | Semantic HTML5 &amp; jQuery</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="q2.js"></script>
+</body>
+</html>

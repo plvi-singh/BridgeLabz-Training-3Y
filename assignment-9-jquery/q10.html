@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q10 – Registration Form Validation</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header, main, footer {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 1.25rem;
+    }
+    header { border-bottom: 1px solid var(--border); }
+    header h1 { margin: 0 0 0.25rem; font-size: 1.5rem; }
+    header p { margin: 0; color: var(--muted); }
+    .layout {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 1.25rem;
+      align-items: start;
+    }
+    @media (max-width: 700px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.35rem;
+    }
+    .field {
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    input {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      border: 2px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      outline: none;
+    }
+    .error-text {
+      display: block;
+      min-height: 1.1rem;
+      font-size: 0.82rem;
+      color: #dc2626;
+      margin-top: 0.25rem;
+    }
+    button {
+      width: 100%;
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.7rem 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: #1d4ed8; }
+    #form-success {
+      display: none;
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      background: #dcfce7;
+      border: 1px solid #86efac;
+      color: #166534;
+      font-weight: 600;
+    }
+    ul {
+      padding-left: 1.2rem;
+      margin: 0.5rem 0 0;
+      color: #475569;
+      font-size: 0.9rem;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Q10 – Registration Form Validation</h1>
+    <p>Client-side validation for Name, Email format &amp; uniqueness, Password length (&ge; 8), success message, and red border highlights.</p>
+  </header>
+
+  <main class="layout">
+    <section class="card" aria-labelledby="form-heading">
+      <h2 id="form-heading" style="margin-top:0;">Create Account</h2>
+      <form id="registration-form" novalidate>
+        <div class="field">
+          <label for="reg-name">Full Name</label>
+          <input id="reg-name" type="text" placeholder="Enter your full name" />
+          <span id="err-name" class="error-text"></span>
+        </div>
+
+        <div class="field">
+          <label for="reg-email">Email Address</label>
+          <input id="reg-email" type="email" placeholder="you@example.com" />
+          <span id="err-email" class="error-text"></span>
+        </div>
+
+        <div class="field">
+          <label for="reg-password">Password (min 8 characters)</label>
+          <input id="reg-password" type="password" placeholder="At least 8 characters" />
+          <span id="err-password" class="error-text"></span>
+        </div>
+
+        <button type="submit">Register</button>
+      </form>
+
+      <div id="form-success" role="status"></div>
+    </section>
+
+    <!-- At least 5 pre-registered emails to test uniqueness check -->
+    <aside class="card" aria-labelledby="existing-heading">
+      <h2 id="existing-heading" style="margin-top:0; font-size:1.1rem;">Already Registered Emails (5)</h2>
+      <p style="font-size:0.88rem; color:#64748b; margin-top:0;">
+        Try submitting one of these to test email uniqueness validation:
+      </p>
+      <ul id="registered-emails-list">
+        <li>alice@example.com</li>
+        <li>bob@example.com</li>
+        <li>carol@example.com</li>
+        <li>david@example.com</li>
+        <li>elena@example.com</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer>
+    <p>Assignment 9 – Question 10 | Semantic HTML5 &amp; jQuery</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="q10.js"></script>
+</body>
+</html>

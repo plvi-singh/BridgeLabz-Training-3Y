@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q3 – Interactive FAQ</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header, main, footer {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 1.25rem;
+    }
+    header { border-bottom: 1px solid var(--border); }
+    header h1 { margin: 0 0 0.25rem; font-size: 1.5rem; }
+    header p { margin: 0; color: var(--muted); }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin-top: 1rem;
+    }
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .faq-question {
+      margin: 0;
+      padding: 1rem 1.25rem;
+      font-size: 1.05rem;
+      cursor: pointer;
+      user-select: none;
+      background: #ffffff;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 1.25rem 1.1rem;
+      border-top: 1px solid var(--border);
+      background: #f8fafc;
+    }
+    .faq-answer label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 0.6rem;
+      color: #475569;
+    }
+    .faq-input {
+      width: 100%;
+      margin-top: 0.3rem;
+      padding: 0.55rem 0.75rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+    .tip {
+      font-size: 0.9rem;
+      color: var(--muted);
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Q3 – Interactive FAQ</h1>
+    <p>Click to toggle, hover for color change, double-click to collapse all, and focus/blur answer inputs.</p>
+  </header>
+
+  <main>
+    <p class="tip">
+      <strong>Tip:</strong> Single-click any question to toggle its answer. Double-click any question to collapse all answers. Focus inside an answer input to highlight its parent question.
+    </p>
+
+    <section class="faq-list" aria-label="Frequently Asked Questions">
+      <article class="faq-item">
+        <h2 class="faq-question">1. How do I reset my account password?</h2>
+        <div class="faq-answer">
+          <p>Go to Account Settings &rarr; Security and click "Send Password Reset Link".</p>
+          <label for="faq-note-1">Add a follow-up note or question:</label>
+          <input id="faq-note-1" class="faq-input" type="text" placeholder="Type your follow-up note here..." />
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <h2 class="faq-question">2. Can I access courses offline?</h2>
+        <div class="faq-answer">
+          <p>Yes, our mobile app lets you download video lessons and PDFs for offline viewing.</p>
+          <label for="faq-note-2">Add a follow-up note or question:</label>
+          <input id="faq-note-2" class="faq-input" type="text" placeholder="Type your follow-up note here..." />
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <h2 class="faq-question">3. What payment methods are accepted?</h2>
+        <div class="faq-answer">
+          <p>We accept major credit/debit cards, UPI, PayPal, and institutional invoices.</p>
+          <label for="faq-note-3">Add a follow-up note or question:</label>
+          <input id="faq-note-3" class="faq-input" type="text" placeholder="Type your follow-up note here..." />
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <h2 class="faq-question">4. How are completion certificates issued?</h2>
+        <div class="faq-answer">
+          <p>Certificates are generated automatically once all graded assignments reach 80% or higher.</p>
+          <label for="faq-note-4">Add a follow-up note or question:</label>
+          <input id="faq-note-4" class="faq-input" type="text" placeholder="Type your follow-up note here..." />
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <h2 class="faq-question">5. How can I contact student support?</h2>
+        <div class="faq-answer">
+          <p>Support is available 24/7 via live chat or by emailing support@example.edu.</p>
+          <label for="faq-note-5">Add a follow-up note or question:</label>
+          <input id="faq-note-5" class="faq-input" type="text" placeholder="Type your follow-up note here..." />
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>Assignment 9 – Question 3 | Semantic HTML5 &amp; jQuery</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="q3.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q7 – Search Courses</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header, main, footer {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.25rem;
+    }
+    header { border-bottom: 1px solid var(--border); }
+    header h1 { margin: 0 0 0.25rem; font-size: 1.5rem; }
+    header p { margin: 0; color: var(--muted); }
+    .search-bar {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.9rem;
+      margin-bottom: 0.9rem;
+    }
+    #course-search {
+      flex: 1;
+      padding: 0.6rem 0.85rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      background: #475569;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.6rem 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: #334155; }
+    .meta-row {
+      margin-bottom: 0.9rem;
+      font-weight: 600;
+      color: #334155;
+    }
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .course-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem;
+    }
+    .course-title {
+      margin: 0 0 0.35rem;
+      font-size: 1.08rem;
+    }
+    .course-desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Q7 – Search Courses</h1>
+    <p>Real-time filtering with .keyup(), match highlighting with .css(), visibility toggling, live count, and clear reset.</p>
+  </header>
+
+  <main>
+    <section aria-label="Course Search">
+      <div class="search-bar">
+        <input id="course-search" type="text" placeholder="Search courses (e.g., JavaScript, Python, Data, Web)..." aria-label="Search courses" />
+        <button id="btn-clear-search" type="button">Clear Search</button>
+      </div>
+      <div class="meta-row">
+        Showing <span id="match-count">6</span> of <span id="total-count">6</span> courses
+      </div>
+    </section>
+
+    <!-- At least 5 courses (6 provided) -->
+    <section class="course-grid" id="course-list" aria-label="Available Courses">
+      <article class="course-card">
+        <h2 class="course-title">Modern JavaScript &amp; jQuery Essentials</h2>
+        <p class="course-desc">Master DOM manipulation, events, animations, and interactive UI patterns.</p>
+      </article>
+      <article class="course-card">
+        <h2 class="course-title">Python for Data Science</h2>
+        <p class="course-desc">Analyze datasets with NumPy, Pandas, and clean visualization workflows.</p>
+      </article>
+      <article class="course-card">
+        <h2 class="course-title">Semantic HTML5 &amp; Responsive CSS3</h2>
+        <p class="course-desc">Build accessible, mobile-first layouts using Flexbox and CSS Grid.</p>
+      </article>
+      <article class="course-card">
+        <h2 class="course-title">Database Systems &amp; SQL Mastery</h2>
+        <p class="course-desc">Design normalized relational schemas and write high-performance queries.</p>
+      </article>
+      <article class="course-card">
+        <h2 class="course-title">Full-Stack Web Engineering</h2>
+        <p class="course-desc">Connect REST APIs, authentication, and front-end components seamlessly.</p>
+      </article>
+      <article class="course-card">
+        <h2 class="course-title">Cloud Architecture &amp; DevOps Basics</h2>
+        <p class="course-desc">Automate CI/CD pipelines, containers, and scalable deployments.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>Assignment 9 – Question 7 | Semantic HTML5 &amp; jQuery</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="q7.js"></script>
+</body>
+</html>
